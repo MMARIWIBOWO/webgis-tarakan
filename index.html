@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WebGIS Sengketa & Potensi Masalah — Tarakan</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css" />
+</head>
+<body>
+  <header>
+    <h1>WebGIS Sengketa & Potensi Masalah (Tarakan)</h1>
+    <input id="q" class="input" placeholder="Cari NIB / Nomor Hak / Kata kunci..." />
+    <select id="fStatus"><option value="">Semua Status</option><option>Potensi</option><option>Terjadi</option><option>Selesai</option></select>
+    <select id="fSeverity"><option value="">Semua Level</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+    <label class="btn"><input type="checkbox" id="toggleLabels"/> Label NIB</label>
+    <button id="btnReset" class="btn">Reset</button>
+    <button id="btnExport" class="btn">Ekspor GeoJSON</button>
+    <button id="btnExportKML" class="btn">Ekspor KML</button>
+    <button id="btnLocate" class="btn">Lokasi Saya</button>
+  </header>
+  <div id="map"></div>
+
+  <section class="grid">
+    <div class="card">
+      <h3>Layer & Legenda</h3>
+      <div class="body">
+        <label class="btn">Impor GeoJSON<input id="impGeoJSON" type="file" hidden/></label>
+        <label class="btn">Impor KML<input id="impKML" type="file" hidden/></label>
+        <label class="btn">Impor KMZ<input id="impKMZ" type="file" hidden/></label>
+        <label class="btn">Impor SHP (ZIP)<input id="impSHP" type="file" hidden/></label>
+        <div id="legend"></div>
+      </div>
+    </div>
+    <div class="card" style="grid-column:1/-1">
+      <h3>Rekap per Kelurahan</h3>
+      <div class="body">
+        <canvas id="recapChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+  <script src="https://unpkg.com/shpjs@latest/dist/shp.min.js"></script>
+  <script src="https://unpkg.com/jszip@3.10.1/dist/jszip.min.js"></script>
+  <script src="https://unpkg.com/@tmcw/togeojson@5.0.1/dist/togeojson.umd.js"></script>
+  <script src="https://unpkg.com/tokml@0.4.0/tokml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
